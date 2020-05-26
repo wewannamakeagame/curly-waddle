@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/barHorizontal_green_mid 200.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends TextureProgress
+
+var bar_red = preload(\"res://assets/barHorizontal_red_mid 200.png\")
+var bar_green = preload(\"res://assets/barHorizontal_green_mid 200.png\")
+var bar_yellow = preload(\"res://assets/barHorizontal_yellow_mid 200.png\")
+				
+#func _ready():
+#	hide()
+	
+func update_bar(amount, full):
+	if amount < full:
+		show()
+	texture_progress = bar_green
+	if amount < 0.75 * full:
+		texture_progress = bar_yellow
+	if value < 0.45 * full:
+		texture_progress = bar_red
+	value = amount
+
+func _on_HealthBar2D_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		show()
+		update_bar(value-1, 10)
+"
+
+[node name="HealthBar2D" type="TextureProgress"]
+margin_right = 200.0
+margin_bottom = 40.0
+max_value = 10.0
+texture_progress = ExtResource( 2 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="." to="." method="_on_HealthBar2D_gui_input"]

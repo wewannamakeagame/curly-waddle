@@ -15,8 +15,31 @@ _global_script_class_icons={
 
 [application]
 
-config/name="My Test Project"
+config/name="3drts3"
+run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/fullscreen=true
+
+[input]
+
+main_command={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+alt_command={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="environment"
+3d_physics/layer_2="units"
 
 [rendering]
 
